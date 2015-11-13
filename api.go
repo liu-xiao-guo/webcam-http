@@ -79,7 +79,7 @@ func main() {
 		time.Sleep(3 * time.Second)
 		GlowOff()
 	}()
-	if err := http.ListenAndServe(":8001", m); err != nil {
+	if err := http.ListenAndServe(":9999", m); err != nil {
 		log.Fatal(err)
 	}
 }
