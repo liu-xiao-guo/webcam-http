@@ -7,6 +7,8 @@ import (
 	"regexp"
 	"strings"
 	"time"
+	"fmt"
+	"os/exec"
 )
 
 // The one and only martini instance.
@@ -25,7 +27,10 @@ func init() {
 	m.Use(MapEncoder)
 	// Setup routes
 	r := martini.NewRouter()
-	r.Get("/", func() string {
+	r.Get("/", func() string {	
+		fmt.Println("Going to call fswebcam")
+		var ErrNotFound = errors.New("fswebcam shot.jpeg")
+		fmt.Printf("error code: %d: ", ErrNotFound);		
   		return "Hello, webcam" // HTTP 200 : "hello world"
 	})
 	// r.Post(`/:version/clear`, GlowOff)
