@@ -37,11 +37,12 @@ func init() {
 		
 		cmd := exec.Command("bin/webcam", "shot.jpeg")
 		err1 := cmd.Run()
-		fmt.Printf("err1: %d", err1)
+		fmt.Printf("err1: %s", err1.Error())
 
 		if err1 != nil {
 			log.Fatal(err1)
 		}
+		
   		return "Hello, webcam" // HTTP 200 : "hello world"
 	})
 	// r.Post(`/:version/clear`, GlowOff)
