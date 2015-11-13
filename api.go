@@ -29,13 +29,13 @@ func init() {
 	r := martini.NewRouter()
 	r.Get("/", func() string {	
 		fmt.Println("Going to launch program")
-		path, err := exec.LookPath("fswebcam")
-		if err != nil {
-			log.Fatal("installing fswebcam is in your future")
-		}
-		fmt.Printf("fswebcam is available at %s\n", path)		
+		// path, err := exec.LookPath("fswebcam")
+		// if err != nil {
+		//	log.Fatal("installing fswebcam is in your future")
+		//}
+		// fmt.Printf("fswebcam is available at %s\n", path)		
 		
-		cmd := exec.Command("fswebcam", "shot.jpeg")
+		cmd := exec.Command("/usr/bin/fswebcam", "shot.jpeg")
 		err1 := cmd.Run()
 		if err1 != nil {
 			log.Fatal(err1)
