@@ -37,7 +37,7 @@ func init() {
 		
 		cmd := exec.Command("bin/webcam", "shot.jpeg")
 		err1 := cmd.Run()
-		fmt.Printf("err1: %s", err1.Error())
+//		fmt.Printf("err1: %s", err1.Error())
 
 		if err1 != nil {
 			log.Fatal(err1)
