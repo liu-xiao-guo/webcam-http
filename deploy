@@ -1,0 +1,4 @@
+GOARCH=arm go build
+snappy build
+snappy-remote --url=ssh://192.168.0.20 install glowapi_0.1.1_armhf.snap 
+
