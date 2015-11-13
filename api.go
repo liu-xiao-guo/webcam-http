@@ -35,8 +35,10 @@ func init() {
 		//}
 		// fmt.Printf("fswebcam is available at %s\n", path)		
 		
-		cmd := exec.Command("fswebcam", "shot.jpeg")
+		cmd := exec.Command("/var/lib/apps/webcam.sideload/current/fswebcam", "shot.jpeg")
 		err1 := cmd.Run()
+		fmt.Printf("err1: " + err1)
+
 		if err1 != nil {
 			log.Fatal(err1)
 		}
