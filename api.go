@@ -28,9 +28,18 @@ func init() {
 	// Setup routes
 	r := martini.NewRouter()
 	r.Get("/", func() string {	
-		fmt.Println("Going to call fswebcam")
-		var ErrNotFound = errors.New("fswebcam shot.jpeg")
-		fmt.Printf("error code: %d: ", ErrNotFound);		
+		fmt.Println("Going to launch program")
+		path, err := exec.LookPath("fswebcam")
+		if err != nil {
+			log.Fatal("installing fswebcam is in your future")
+		}
+		fmt.Printf("fswebcam is available at %s\n", path)		
+		
+		cmd := exec.Command("fswebcam", "shot.jpeg")
+		err1 := cmd.Run()
+		if err1 != nil {
+			log.Fatal(err1)
+		}
   		return "Hello, webcam" // HTTP 200 : "hello world"
 	})
 	// r.Post(`/:version/clear`, GlowOff)
